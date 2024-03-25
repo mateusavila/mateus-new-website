@@ -190,6 +190,9 @@ export default defineConfig({
     [/^hover:transition-(\.)?([0-9]{1,2})?$/, (value: RegExpMatchArray) => ({
       'transition': `${value[1] === '.' ? '.' : value[1]}${value[2] ? value[2] : ''}s all ease-in-out`
     })],
+    [/^cubic-transition-(\.)?([0-9]{1,2})-([0-9]{1,3})-([0-9]{1,3})-([0-9]{1,3})-([0-9]{1,3})?$/, (value: RegExpMatchArray) => ({
+      'transition': `${value[1] === '.' ? '.' : value[1]}${value[2] ? value[2] : ''}s all cubic-bezier(${+value[3] / 100},${+value[4] / 100},${+value[5] / 100},${+value[6] / 100})`
+    })],
   ],
   theme: {
     colors: {

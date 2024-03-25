@@ -28,12 +28,15 @@ export default defineNuxtConfig({
       ]
     }
   },
-  ssr: false,
-  devtools: { 
+  devtools: {
     enabled: false,
   },
-  css: ['~/assets/font/iconfont.css'],
   modules: [
     '@unocss/nuxt',
   ],
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.NUXT_PUBLIC_API_BASE as string
+    }
+  },
 })
